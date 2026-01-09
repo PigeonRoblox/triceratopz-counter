@@ -1,11 +1,11 @@
-const express = require("express");
-const fetch = require("node-fetch");
-const fs = require("fs");
+import express from "express";
+import fetch from "node-fetch";
+import fs from "fs";
 
 const app = express();
 app.use(express.json());
 
-let count = 0;
+let count = 36;
 
 if (fs.existsSync("count.txt")) {
   count = parseInt(fs.readFileSync("count.txt", "utf8")) || 0;
@@ -17,7 +17,7 @@ app.post("/log", async (req, res) => {
   count++;
   fs.writeFileSync("count.txt", count.toString());
 
-  await fetch("TON_WEBHOOK_DISCORD", {
+  await fetch("https://discord.com/api/webhooks/1458857007896592384/KYE0-NNHGwtKJGQA85AoPdtTa2hsYM-QmBcEN0H6VnKbSAG0rVSJK-lwjk7PbHj_F7qM", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -32,4 +32,4 @@ Count: ${count}`
   res.json({ ok: true });
 });
 
-app.listen(3000, () => console.log("Server running"));
+app.listen(process.env.PORT || 3000);
