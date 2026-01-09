@@ -32,4 +32,8 @@ Count: ${count}`
   res.json({ ok: true });
 });
 
-app.listen(process.env.PORT || 3000);
+// ⚠️ IMPORTANT
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log("Server listening on port", PORT);
+});
