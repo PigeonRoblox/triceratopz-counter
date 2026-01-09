@@ -17,7 +17,7 @@ app.post("/log", async (req, res) => {
   count++;
   fs.writeFileSync("count.txt", count.toString());
 
-  await fetch("https://discord.com/api/webhooks/1458857007896592384/KYE0-NNHGwtKJGQA85AoPdtTa2hsYM-QmBcEN0H6VnKbSAG0rVSJK-lwjk7PbHj_F7qM", {
+  await fetch("https://discord.com/api/webhooks/1459220767697797328/TZZaWtWtpYrQ3cBoFxmv7EGx6Etn_u5ebwyEIA3KDjRPpIAJ9TorTPsscQKe5mRWYiMg", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -37,3 +37,4 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server listening on port", PORT);
 });
+
